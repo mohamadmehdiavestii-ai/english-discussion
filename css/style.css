@@ -144,3 +144,26 @@ nav a:hover {
   border-radius: 6px;
   font-size: 0.85rem;
 }
+
+.topic-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.topic-page h1 {
+  font-size: 2rem;
+  margin: 12px 0 8px;
+}
+
+.topic-question {
+  font-size: 1.15rem;
+  color: #4b5563;
+}

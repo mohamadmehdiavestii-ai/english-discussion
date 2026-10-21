@@ -10,7 +10,7 @@ function renderTopics(list) {
   cardsContainer.innerHTML = list
     .map(function (topic) {
       return `
-        <a href="#" class="card">
+        <a href="topic.html?id=${topic.id}" class="card">
           <span class="level">${topic.level}</span>
           <h3 dir="ltr">${topic.title}</h3>
           <p dir="ltr">${topic.question}</p>
