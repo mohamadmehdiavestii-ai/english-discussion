@@ -39,6 +39,67 @@ function renderPhrases(list) {
   return `<ul class="phrase-list">${items}</ul>`;
 }
 
+function renderStructure(list) {
+  const items = list
+    .map(function (item) {
+      return `
+        <li>
+          <span>${item.step}</span>
+          <span class="step-example" dir="ltr">${item.example}</span>
+        </li>
+      `;
+    })
+    .join("");
+
+  return `<ol class="structure-list">${items}</ol>`;
+}
+
+function renderGrammar(list) {
+  return list
+    .map(function (item) {
+      const examples = item.examples
+        .map(function (example) {
+          return `<li>${example}</li>`;
+        })
+        .join("");
+
+      return `
+        <div class="grammar-item">
+          <h4>${item.title}</h4>
+          <p>${item.explanation}</p>
+          <ul class="grammar-examples" dir="ltr">${examples}</ul>
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function renderQuestions(list) {
+  const items = list
+    .map(function (question) {
+      return `<li dir="ltr">${question}</li>`;
+    })
+    .join("");
+
+  return `<ul class="question-list">${items}</ul>`;
+}
+
+function renderMistakes(list) {
+  const items = list
+    .map(function (item) {
+      return `
+        <li class="mistake-item">
+          <p class="mistake-wrong" dir="ltr">✗ ${item.wrong}</p>
+          <p class="mistake-right" dir="ltr">✓ ${item.right}</p>
+          <p class="mistake-note">${item.note}</p>
+        </li>
+      `;
+    })
+    .join("");
+
+  return `<ul class="mistake-list">${items}</ul>`;
+}
+
 if (!topic) {
   content.innerHTML = `
     <p>این موضوع پیدا نشد.</p>
@@ -47,23 +108,39 @@ if (!topic) {
 } else {
   document.title = topic.title + " | گفتگوی انگلیسی";
 
-  const sections = [
+    const sections = [
     {
       title: "جواب نمونه",
       html: topic.sampleAnswer ? renderSampleAnswer(topic.sampleAnswer) : ""
+    },
+    {
+      title: "ساختار جواب",
+      html: topic.structure ? renderStructure(topic.structure) : ""
     },
     {
       title: "لغات کلیدی",
       html: topic.vocabulary ? renderVocabulary(topic.vocabulary) : ""
     },
     {
+      title: "گرامر",
+      html: topic.grammar ? renderGrammar(topic.grammar) : ""
+    },
+    {
       title: "جمله‌های آماده",
       html: topic.phrases ? renderPhrases(topic.phrases) : ""
+    },
+    {
+      title: "سؤال‌های تمرین",
+      html: topic.practiceQuestions ? renderQuestions(topic.practiceQuestions) : ""
+    },
+    {
+      title: "اشتباه‌های رایج",
+      html: topic.commonMistakes ? renderMistakes(topic.commonMistakes) : ""
     }
   ].filter(function (section) {
     return section.html;
   });
-
+  
   const sectionsHtml = sections
     .map(function (section) {
       return `

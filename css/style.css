@@ -255,3 +255,64 @@ nav a:hover {
   background: #eff6ff;
   border-radius: 8px;
 }
+
+.structure-list {
+  padding-inline-start: 24px;
+}
+
+.structure-list li {
+  margin-bottom: 12px;
+}
+
+.step-example {
+  display: block;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.grammar-item {
+  margin-bottom: 20px;
+}
+
+.grammar-item h4 {
+  margin-bottom: 4px;
+  color: #1d4ed8;
+}
+
+.grammar-examples,
+.question-list,
+.mistake-list {
+  list-style: none;
+}
+
+.grammar-examples li {
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: #eff6ff;
+  border-radius: 8px;
+}
+
+.question-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.mistake-item {
+  margin-bottom: 16px;
+}
+
+.mistake-wrong {
+  color: #b91c1c;
+  text-decoration: line-through;
+}
+
+.mistake-right {
+  color: #15803d;
+  font-weight: bold;
+}
+
+.mistake-note {
+  margin-top: 2px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
