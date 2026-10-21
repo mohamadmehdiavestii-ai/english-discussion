@@ -167,3 +167,48 @@ nav a:hover {
   font-size: 1.15rem;
   color: #4b5563;
 }
+
+.accordion {
+  margin-top: 32px;
+}
+
+.accordion-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.arrow {
+  transition: transform 0.2s;
+}
+
+.accordion-item.open .arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  display: none;
+  padding: 0 20px 20px;
+  color: #374151;
+}
+
+.accordion-item.open .accordion-body {
+  display: block;
+}
