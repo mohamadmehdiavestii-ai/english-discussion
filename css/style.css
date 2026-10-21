@@ -212,3 +212,46 @@ nav a:hover {
 .accordion-item.open .accordion-body {
   display: block;
 }
+
+.vocab-list,
+.phrase-list {
+  list-style: none;
+}
+
+.vocab-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.vocab-item:last-child {
+  border-bottom: none;
+}
+
+.vocab-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.vocab-word {
+  font-weight: bold;
+  color: #1d4ed8;
+}
+
+.vocab-meaning {
+  color: #4b5563;
+}
+
+.vocab-example {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.phrase-list li {
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  background: #eff6ff;
+  border-radius: 8px;
+}

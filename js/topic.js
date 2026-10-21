@@ -7,6 +7,38 @@ const topic = topics.find(function (t) {
 
 const content = document.getElementById("topic-content");
 
+function renderSampleAnswer(text) {
+  return `<p dir="ltr">${text}</p>`;
+}
+
+function renderVocabulary(list) {
+  const items = list
+    .map(function (item) {
+      return `
+        <li class="vocab-item">
+          <div class="vocab-top">
+            <span class="vocab-word" dir="ltr">${item.word}</span>
+            <span class="vocab-meaning">${item.meaning}</span>
+          </div>
+          <p class="vocab-example" dir="ltr">${item.example}</p>
+        </li>
+      `;
+    })
+    .join("");
+
+  return `<ul class="vocab-list">${items}</ul>`;
+}
+
+function renderPhrases(list) {
+  const items = list
+    .map(function (phrase) {
+      return `<li dir="ltr">${phrase}</li>`;
+    })
+    .join("");
+
+  return `<ul class="phrase-list">${items}</ul>`;
+}
+
 if (!topic) {
   content.innerHTML = `
     <p>این موضوع پیدا نشد.</p>
@@ -16,9 +48,20 @@ if (!topic) {
   document.title = topic.title + " | گفتگوی انگلیسی";
 
   const sections = [
-    { title: "جواب نمونه", body: topic.sampleAnswer }
+    {
+      title: "جواب نمونه",
+      html: topic.sampleAnswer ? renderSampleAnswer(topic.sampleAnswer) : ""
+    },
+    {
+      title: "لغات کلیدی",
+      html: topic.vocabulary ? renderVocabulary(topic.vocabulary) : ""
+    },
+    {
+      title: "جمله‌های آماده",
+      html: topic.phrases ? renderPhrases(topic.phrases) : ""
+    }
   ].filter(function (section) {
-    return section.body;
+    return section.html;
   });
 
   const sectionsHtml = sections
@@ -29,8 +72,8 @@ if (!topic) {
             <span>${section.title}</span>
             <span class="arrow">▾</span>
           </button>
-          <div class="accordion-body" dir="ltr">
-            <p>${section.body}</p>
+          <div class="accordion-body">
+            ${section.html}
           </div>
         </div>
       `;
